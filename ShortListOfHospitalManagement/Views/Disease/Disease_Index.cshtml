@@ -1,0 +1,50 @@
+﻿@model ShortListOfHospitalManagement.ViewModel.DiseasesViewModel
+
+@{
+    ViewData["Title"] = "Disease List";
+}
+
+
+
+<div class="container d-flex justify-content-center">
+    <div class="card col-md-6">
+        <div class="card-header">
+            Diseases Information
+        </div>
+        <div class="card-body">
+            <form asp-action="CreateDisease" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="diseaseName">Diseases Name</label>
+                    <input class="form-control" id="diseaseName" name="DiseaseName" placeholder="Enter here" />
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Add Diseases</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Disease Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.DiseasesList)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.DiseaseName</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-warning">Edit</a> |
+                                <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+﻿@model ShortListOfHospitalManagement.Models.Patient
+
+@{
+    ViewData["Title"] = "Patient List";
+}
+
+
+<div class="d-flex justify-content-center mb-5">
+    <h2>Patient Information</h2>
+</div>
+
+<div class="container">
+    <form id="patientForm" action="Create" method="post">
+        <div class="row mb-3">
+            <div class="col-md-2 d-flex justify-content-end">
+                <label asp-for="PatientName" class="form-label">Patient Name <span class="text-danger">*</span></label>
+            </div>
+            <div class="col-md-10 d-flex justify-content-end">
+                <input asp-for="PatientName" class="form-control" type="text" name="PatientName" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-2 d-flex justify-content-end">
+                <label asp-for="DiseaseFK_Id" class="form-label">Diseases <span class="text-danger">*</span></label>
+            </div>
+            <div class="col-md-10 d-flex justify-content-end">
+                <select asp-for="DiseaseFK_Id" class="form-control" asp-items="ViewBag.DiseasesList">
+                    <option value="" disabled selected>Select</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-2 d-flex justify-content-end">
+                <label asp-for="EpilepsyVal" class="form-label">Epilepsy <span class="text-danger">*</span></label>
+            </div>
+            <div class="col-md-10 d-flex justify-content-end">
+                <select asp-for="EpilepsyVal" class="form-control" asp-items="ViewBag.EpilepsyList">
+                    <option value="" disabled selected>Select</option>
+                </select>
+            </div>
+        </div>
+        <div class="row d-flex mb-3">
+            <div class="col-md-2 d-flex justify-content-end mt-5">
+                <label class="form-label">NCDs</label>
+            </div>
+            <div class="col-md-4">
+                <select id="ncdSelect" class="form-control divForContent" multiple asp-items="ViewBag.NCDList"></select>
+            </div>
+            <div class="col-md-2 d-flex flex-column justify-content-center">
+                <button type="button" onclick="AddNCD()" class="btn btn-outline-secondary mb-2">Add <i class="fas fa-angle-right"></i></button>
+                <button type="button" onclick="RemoveNCD()" class="btn btn-outline-danger"><i class="fas fa-angle-left"></i> Remove</button>
+            </div>
+            <div class="col-md-4">
+                <select id="selectedNCDs" class="form-control divForContent" multiple></select>
+            </div>
+        </div>
+        <div class="row d-flex mb-3">
+            <div class="col-md-2 d-flex justify-content-end mt-5">
+                <label class="form-label">Allergy <span class="text-danger">*</span></label>
+            </div>
+            <div class="col-md-4">
+                <select id="allargySelect" class="form-control divForContent" multiple asp-items="ViewBag.AllergyList"></select>
+            </div>
+            <div class="col-md-2 d-flex flex-column justify-content-center">
+                <button type="button" onclick="AddAllargy()" class="btn btn-outline-secondary mb-2">Add <i class="fas fa-angle-right"></i></button>
+                <button type="button" onclick="RemoveAllargy()" class="btn btn-outline-danger"><i class="fas fa-angle-left"></i> Remove</button>
+            </div>
+            <div class="col-md-4">
+                <select id="selectedAllergy" class="form-control divForContent" multiple></select>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <button type="button" onclick="submitForm()" class="btn-success p-3 rounded">Save</button>
+        </div>
+    </form>
+</div>
