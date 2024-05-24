@@ -4,27 +4,41 @@ then project will be run with data**
 
 
 ==============Answer+============
+
 Name : Rukon Uddin
+
 CellPhone: 019352043521
+
 Email: rukon2280@gmail.com
 
 Problem 1: Normalize the Register up to 3rd Normal Form (3NF)
+
 a. Normalize the Register
+
 Given the register:
+
 **Doctor	Contact Number	Service Points	Department**
 
 Dr. Lissa Mwenda	+260766219936	Antenatal Care, Family Planning, Postnatal Care	Gynecology
+
 Dr. Yvonne Sishuwa	+260766219937	Family Planning, Postnatal Care	Pediatrics
+
 Dr. Machalo Mbale	+260766219938	Antenatal Care	Radiology and Imaging
 
 **Step 1: 1NF (First Normal Form)**
 
 Doctor	Contact Number	Service Point	Department
+
 Dr. Lissa Mwenda	+260766219936	Antenatal Care	Gynecology
+
 Dr. Lissa Mwenda	+260766219936	Family Planning	Gynecology
+
 Dr. Lissa Mwenda	+260766219936	Postnatal Care	Gynecology
+
 Dr. Yvonne Sishuwa	+260766219937	Family Planning	Pediatrics
+
 Dr. Yvonne Sishuwa	+260766219937	Postnatal Care	Pediatrics
+
 Dr. Machalo Mbale	+260766219938	Antenatal Care	Radiology and Imaging
 
 **Step 2: 2NF (Second Normal Form)**
@@ -34,7 +48,9 @@ Dr. Machalo Mbale	+260766219938	Antenatal Care	Radiology and Imaging
 Doctor ID	Doctor Name	Contact Number	Department
 
 1	Dr. Lissa Mwenda	+260766219936	Gynecology
+
 2	Dr. Yvonne Sishuwa	+260766219937	Pediatrics
+
 3	Dr. Machalo Mbale	+260766219938	Radiology and Imaging
 
 ServicePoints Table:
@@ -42,20 +58,31 @@ ServicePoints Table:
 Doctor ID	Service Point
 
 1	Antenatal Care
+
 1	Family Planning
+
 1	Postnatal Care
+
 2	Family Planning
+
 2	Postnatal Care
+
 3	Antenatal Care
 
 **Step 3: 3NF (Third Normal Form)**
 
 Entities:
+
 •	Doctor
+
 •	ServicePoint
+
 Relationships:
+
 •	A Doctor can have multiple ServicePoints.
+
 •	A ServicePoint is associated with one Doctor.
+
 Doctor (DoctorID, DoctorName, ContactNumber, Department) | |------<has>------| | ServicePoint (DoctorID, ServicePoin
 
 **Problem 2: Trace the Value of n in Every Iteration**
